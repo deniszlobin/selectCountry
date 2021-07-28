@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Document</title>
+    <style>
+      
+      #country{
+        height: 25px;
+        width: 200px
+      }
+      #autocomplete_list{
+        display: none;
+        width: 208px;
+        border: solid 1px ;
+        margin-top: 2px;
+      }
+      :hover.list{
+       background-color: rgb(209, 206, 206);
+       cursor: pointer;
+      }
+      .list{
+        margin-left: 1px;
+      }
+    </style>
+  </head>
+  <body>
+    <input type="text" id="country" autofocus placeholder="Введите страну">
+    <div id="autocomplete_list">
+
+    </div>
+  </body>
+  <script src="script.js"></script>
+</html>
