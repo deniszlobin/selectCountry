@@ -197,7 +197,11 @@ let countries = [
 let input = document.querySelector("#country");
 let autocomplete_list = document.querySelector("#autocomplete_list");
 let body = document.querySelector("body");
+
+//Клик на пустое место закрывает список
 body.addEventListener("click", clickClearOnBody);
+
+//При наборе названия выпадает список
 input.addEventListener("keyup", list);
 function list() {
   let value = input.value;
@@ -207,7 +211,7 @@ function list() {
   } else {
     clear();
     countries.forEach((element) => {
-      let word = element.substring(0, value.length);
+      let word = element.substring(0, value.length);//Подрезает для сравнения с уже написанным в инпуте
       if (value.toLowerCase() == word.toLowerCase()) {
         addDiv(element);
       }
@@ -215,6 +219,7 @@ function list() {
   }
 }
 
+//Создает новые элементы в выпадающем списке
 function addDiv(elem) {
   let container = document.createElement("div");
   container.setAttribute("class", "list");
@@ -224,10 +229,12 @@ function addDiv(elem) {
   autocomplete_list.style.display = "block";
 }
 
+//Удаляет все написанное в инпуте
 function clear() {
   autocomplete_list.innerHTML = "";
 }
 
+//Очищает инпут и прячет выпадающий список если клик на пустое место
 function clickClearOnBody(event) {
   if (event.target.tagName == "BODY") {
     autocomplete_list.style.display = "none";
@@ -235,6 +242,7 @@ function clickClearOnBody(event) {
   }
 }
 
+//Вставляет выбранный пункт списка в инпут
 function resultInsertIntoInput(event) {
   let elem = event.target.innerHTML;
   input.value = elem;
